@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottery</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Lottery Draw</h2>
+        <label id="array"></label><br><br>
+        <button onclick="lotteryDraw()" data-toggle="modal" data-target="#myModal" >Check Winner</button><br><br>
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Winner Announcement</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" id="modal_result" ></div>
+                    <div class="modal-footer">
+                        <button type="button"  data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <label id="result"></label>
+    </div>
+
+    <script>
+        let partcipants = [14351,18732,27143,93644,53679,12345,98765,65432];
+        document.getElementById("array").innerHTML = `Participants are  ${partcipants}`;
+
+        function lotteryDraw(){
+            let winner = partcipants[Math.floor(Math.random() * partcipants.length)];
+
+            console.log(`Winner is ${winner}`);
+            document.getElementById("result").style.color = "red";
+            document.getElementById("result").innerHTML = `Winner is ${winner}`;
+            document.getElementById("modal_result").innerHTML = `Winner is ${winner}`;
+        }
+    </script>
+
+</body>
+</html>

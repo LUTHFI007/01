@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 3</title>
+</head>
+<body>
+    <h3>First List</h3>
+	<ul id="list1" onclick="jump('list1','list2')">
+		<li>Apple</li>
+		<li>Mango</li>
+		<li>Banana</li>
+		<li>Grape</li>
+	</ul>
+
+	<h3>Second List</h3>
+	<ul id="list2" onclick="jump('list2','list1')">
+		<li>Red</li>
+		<li>Green</li>
+		<li>Yellow</li>
+		<li>Blue</li>
+	</ul>
+
+	<script type="text/javascript">
+		function jump(listno1,listno2){
+
+			var listno1 = document.getElementById(listno1);
+			var listno2 = document.getElementById(listno2);
+
+			event.target.tagName === 'LI';
+
+			var itemText = event.target.textContent;
+			listno1.removeChild(event.target);
+
+			var newListItem = document.createElement('li');
+			newListItem.textContent = itemText;
+			listno2.appendChild(newListItem);
+
+			
+		}
+	
+	</script>
+
+</body>
+</html>
